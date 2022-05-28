@@ -31,7 +31,7 @@ const isNumberHere = (num) => {
 const firstQ = answer => {
     if (answer == 12) {
         console.log("Well, it sucks to be you. Game Over!");
-        rl.close();
+       return rl.close(); //need return to exit out!
     } else {
         answerArray.push(answer);
         console.log("Nicely done, Level 1 Complete. Let's see if you can get to 5. >: ) . Just 1 thing, you can't use the same number twice")
@@ -43,11 +43,11 @@ const firstQ = answer => {
 const secondQ = answer => {
     if (answer == 12) {
         console.log("It's ok, we can't all be winners :/. Game over!");
-        rl.close();
+      return rl.close();
     }
     if (isNumberHere(answer)) {
         console.log('Number already received');
-      return rl.question("Hint #1 Randal is an mean, he hates anything squared that equates to 4, 9 or 16.", secondQ);
+        rl.question("Hint #1 Randal is an mean, he hates anything squared that equates to 4, 9 or 16.", secondQ);
     } else {
         answerArray.push(answer);
         console.log("I hope you're keeping track, only 3 levels 2 go!");
@@ -60,11 +60,11 @@ const secondQ = answer => {
 const thirdQ = answer => {
     if (answer == 12) {
         console.log("Randal's coming, you better hide. Game over!");
-        rl.close();
+       return rl.close();
     }
     if (isNumberHere(answer)) {
         console.log('Number already received');
-      return rl.question(thirdQ);
+        rl.question(thirdQ);
     } else {
         answerArray.push(answer);
         console.log('Look at you, King or Queen..');
@@ -77,11 +77,11 @@ const thirdQ = answer => {
 const fourthQ = answer => {
     if (answer == 12) {
         console.log("Well, checkmate, you have greeted your fate. Game over!");
-        rl.close();
+       return rl.close();
     }
     if (isNumberHere(answer)) {
         console.log('Number already received');
-       return rl.question(fourthQ);
+       rl.question(fourthQ);
     } else {
         answerArray.push(answer);
         console.log("Oh, you're so close. Finish this and you'e good to go!");
